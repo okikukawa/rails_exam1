@@ -1,0 +1,9 @@
+<h1>Diary一覧</h1>
+<table>
+  <% @diarys.each do |diary| %>
+    <div class="diarys_list">
+      <%= diary.content %>
+    </div>
+  <% end %>
+</table>
+<%= link_to 'つぶやく', new_diary_path %>
