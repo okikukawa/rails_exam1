@@ -1,4 +1,14 @@
 <%= form_with(model:@diary, local: true)do|form| %>
+  <% if @diary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @diary.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @diary.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div class="diary_title">
     <%= form.label :content %>
     <br>

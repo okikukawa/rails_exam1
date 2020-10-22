@@ -6,8 +6,12 @@ class DiariesController < ApplicationController
     @diary = Diary.new
   end
   def create
-    Diary.create(diary_params)
-    redirect_to new_diary_path
+    @diary = Diary.new(diary_params)
+    if @diary.save
+      redirect_to new_diary_path,notice: "つぶやきました！"
+    else
+      render :new
+    end
   end
   def show
     @diary = Diary.find(params[:id])
