@@ -3,6 +3,7 @@
   <% @diarys.each do |diary| %>
     <div class="diarys_list">
       <%= diary.content %>
+      <%= link_to '詳細', diary_path(diary.id) %>
     </div>
   <% end %>
 </table>

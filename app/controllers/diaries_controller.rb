@@ -9,6 +9,9 @@ class DiariesController < ApplicationController
     Diary.create(diary_params)
     redirect_to new_diary_path
   end
+  def show
+    @diary = Diary.find(params[:id])
+  end
   private
   def diary_params
     params.require(:diary).permit(:content)
