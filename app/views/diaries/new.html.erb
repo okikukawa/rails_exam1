@@ -1,0 +1,8 @@
+<%= form_with(model:@diary, local: true)do|form| %>
+  <div class="diary_title">
+    <%= form.label :content %>
+    <br>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit %>
+<% end %>
