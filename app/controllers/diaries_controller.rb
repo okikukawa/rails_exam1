@@ -1,5 +1,5 @@
 class DiariesController < ApplicationController
-  before_action :set_diary, only:[:show, :edit, :update]
+  before_action :set_diary, only:[:show, :edit, :update, :destroy]
   def index
     @diarys = Diary.all
   end
@@ -24,6 +24,10 @@ class DiariesController < ApplicationController
     else
       render :edit
     end
+  end
+  def destroy
+    @diary.destroy
+    redirect_to diaries_path,notice:"つぶやきを削除しました。"
   end
   private
   def diary_params
