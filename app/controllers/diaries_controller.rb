@@ -1,4 +1,5 @@
 class DiariesController < ApplicationController
+  before_action :set_diary, only:[:show, :edit, :update]
   def index
     @diarys = Diary.all
   end
@@ -14,10 +15,21 @@ class DiariesController < ApplicationController
     end
   end
   def show
-    @diary = Diary.find(params[:id])
+  end
+  def edit
+  end
+  def update
+    if @diary.update(diary_params)
+      redirect_to diaries_path, notice:"編集しました！"
+    else
+      render :edit
+    end
   end
   private
   def diary_params
     params.require(:diary).permit(:content)
+  end
+  def set_diary
+    @diary = Diary.find(params[:id])
   end
 end

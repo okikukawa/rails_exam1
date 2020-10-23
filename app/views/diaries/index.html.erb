@@ -1,10 +1,13 @@
-<h1>Diary一覧</h1>
+<h1>つぶやき一覧</h1>
 <table>
   <% @diarys.each do |diary| %>
     <div class="diarys_list">
       <%= diary.content %>
+      <br>
       <%= link_to '詳細', diary_path(diary.id) %>
+      <%= link_to '編集', edit_diary_path(diary.id) %>
     </div>
   <% end %>
 </table>
+<br>
 <%= link_to 'つぶやく', new_diary_path %>
