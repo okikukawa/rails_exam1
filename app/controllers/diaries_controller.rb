@@ -8,10 +8,14 @@ class DiariesController < ApplicationController
   end
   def create
     @diary = Diary.new(diary_params)
-    if @diary.save
-      redirect_to diaries_path,notice: "つぶやきました！"
-    else
+    if params[:back]
       render :new
+    else
+      if @diary.save
+        redirect_to diaries_path,notice: "つぶやきました！"
+      else
+        render :new
+      end
     end
   end
   def show
@@ -31,6 +35,7 @@ class DiariesController < ApplicationController
   end
   def confirm
     @diary = Diary.new(diary_params)
+    render :new if @diary.invalid?
   end
   private
   def diary_params
