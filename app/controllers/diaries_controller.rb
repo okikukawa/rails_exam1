@@ -9,7 +9,7 @@ class DiariesController < ApplicationController
   def create
     @diary = Diary.new(diary_params)
     if @diary.save
-      redirect_to new_diary_path,notice: "つぶやきました！"
+      redirect_to diaries_path,notice: "つぶやきました！"
     else
       render :new
     end
@@ -28,6 +28,9 @@ class DiariesController < ApplicationController
   def destroy
     @diary.destroy
     redirect_to diaries_path,notice:"つぶやきを削除しました。"
+  end
+  def confirm
+    @diary = Diary.new(diary_params)
   end
   private
   def diary_params
