@@ -1,0 +1,34 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  text-align: center;
+}
+li{
+    list-style:none;
+}
+ul{
+    padding:0;
+}
+.container{
+    margin-top:20px;
+    padding-bottom: 100px;
+}
+.contents{
+  // border: 1px solid black;
+  margin:0 15px;
+  padding:10px 35%;
+}
+.dialies_list{
+  padding:10px 10%;
+  margin:5px 0px;
+  border-radius: 4px;
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+
+}
+.diaries_link{
+  margin-top:5px;
+}
